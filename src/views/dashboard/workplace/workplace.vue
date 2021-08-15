@@ -6,10 +6,10 @@
           <n-gi>
             <div class="flex items-center">
               <div>
-                <n-avatar circle :size="64" :src="schoolboy" />
+                <n-avatar circle :size="64" :src="avatar" />
               </div>
               <div>
-                <p class="px-4 text-xl">早安，Ah jung，开始您一天的工作吧！</p>
+                <p class="px-4 text-xl">{{ greeting }}，{{ username }}，开始您一天的工作吧！</p>
                 <p class="px-4 text-gray-400">今日阴转大雨，15℃ - 25℃，出门记得带伞哦。</p>
               </div>
             </div>
@@ -59,7 +59,7 @@
               <div class="flex mt-2 h-10 text-gray-400">
                 是一个面向开源及私有软件项目的托管平台。
               </div>
-              <div class="flex mt-2 h-10 text-gray-400"> 开源君，2021-07-04 </div>
+              <div class="flex mt-2 h-10 text-gray-400"> 开源君，2021-07-04</div>
             </n-card>
             <n-card
               size="small"
@@ -74,8 +74,8 @@
                 </span>
                 <span class="text-lg ml-4">Vue</span>
               </div>
-              <div class="flex mt-2 h-10 text-gray-400"> 渐进式 JavaScript 框架 </div>
-              <div class="flex mt-2 h-10 text-gray-400"> 学不动也要学，2021-07-04 </div>
+              <div class="flex mt-2 h-10 text-gray-400"> 渐进式 JavaScript 框架</div>
+              <div class="flex mt-2 h-10 text-gray-400"> 学不动也要学，2021-07-04</div>
             </n-card>
             <n-card
               size="small"
@@ -90,8 +90,8 @@
                 </span>
                 <span class="text-lg ml-4">Html5</span>
               </div>
-              <div class="flex mt-2 h-10 text-gray-400"> HTML5是互联网的下一代标准。 </div>
-              <div class="flex mt-2 h-10 text-gray-400"> 撸码也是一种艺术 2021-04-01 </div>
+              <div class="flex mt-2 h-10 text-gray-400"> HTML5是互联网的下一代标准。</div>
+              <div class="flex mt-2 h-10 text-gray-400"> 撸码也是一种艺术 2021-04-01</div>
             </n-card>
             <n-card
               size="small"
@@ -106,8 +106,8 @@
                 </span>
                 <span class="text-lg ml-4">Angular</span>
               </div>
-              <div class="flex mt-2 h-10 text-gray-400"> 现代 Web 开发平台，百万粉丝热捧。 </div>
-              <div class="flex mt-2 h-10 text-gray-400"> 铁粉君 2021-07-04。 </div>
+              <div class="flex mt-2 h-10 text-gray-400"> 现代 Web 开发平台，百万粉丝热捧。</div>
+              <div class="flex mt-2 h-10 text-gray-400"> 铁粉君 2021-07-04。</div>
             </n-card>
             <n-card
               size="small"
@@ -122,8 +122,8 @@
                 </span>
                 <span class="text-lg ml-4">React</span>
               </div>
-              <div class="flex mt-2 h-10 text-gray-400"> 用于构建用户界面的 JavaScript 库。 </div>
-              <div class="flex mt-2 h-10 text-gray-400"> 技术牛 2021-07-04。 </div>
+              <div class="flex mt-2 h-10 text-gray-400"> 用于构建用户界面的 JavaScript 库。</div>
+              <div class="flex mt-2 h-10 text-gray-400"> 技术牛 2021-07-04。</div>
             </n-card>
             <n-card
               size="small"
@@ -138,8 +138,8 @@
                 </span>
                 <span class="text-lg ml-4">Js</span>
               </div>
-              <div class="flex mt-2 h-10 text-gray-400"> 路是走出来的，而不是空想出来的。 </div>
-              <div class="flex mt-2 h-10 text-gray-400"> 架构组 2021-07-04 </div>
+              <div class="flex mt-2 h-10 text-gray-400"> 路是走出来的，而不是空想出来的。</div>
+              <div class="flex mt-2 h-10 text-gray-400"> 架构组 2021-07-04</div>
             </n-card>
           </div>
         </n-card>
@@ -156,7 +156,7 @@
           <n-list>
             <n-list-item>
               <template #prefix>
-                <n-avatar circle :size="40" :src="schoolboy" />
+                <n-avatar circle :size="40" :src="avatar" />
               </template>
               <n-thing title="Ah Jung 刚才把工作台页面随便写了一些，凑合能看了！">
                 <template #description
@@ -166,7 +166,7 @@
             </n-list-item>
             <n-list-item>
               <template #prefix>
-                <n-avatar circle :size="40" :src="schoolboy" />
+                <n-avatar circle :size="40" :src="avatar" />
               </template>
               <n-thing title="Ah Jung 在 开源组 创建了项目 naive-ui-admin？">
                 <template #description
@@ -176,7 +176,7 @@
             </n-list-item>
             <n-list-item>
               <template #prefix>
-                <n-avatar circle :size="40" :src="schoolboy" />
+                <n-avatar circle :size="40" :src="avatar" />
               </template>
               <n-thing title="@It界风清扬，向naive-ui-admin提交了一个bug，抽时间看看吧！">
                 <template #description
@@ -186,7 +186,7 @@
             </n-list-item>
             <n-list-item>
               <template #prefix>
-                <n-avatar circle :size="40" :src="schoolboy" />
+                <n-avatar circle :size="40" :src="avatar" />
               </template>
               <n-thing title="技术部那几位童鞋，再次警告，不要摸鱼，不要摸鱼，不要摸鱼啦！">
                 <template #description
@@ -196,7 +196,7 @@
             </n-list-item>
             <n-list-item>
               <template #prefix>
-                <n-avatar circle :size="40" :src="schoolboy" />
+                <n-avatar circle :size="40" :src="avatar" />
               </template>
               <n-thing title="上班不摸鱼，和咸鱼有什么区别（这话真不是我说的哈）！">
                 <template #description
@@ -206,7 +206,7 @@
             </n-list-item>
             <n-list-item>
               <template #prefix>
-                <n-avatar circle :size="40" :src="schoolboy" />
+                <n-avatar circle :size="40" :src="avatar" />
               </template>
               <n-thing title="页面切换其实也支持缓存，只是加了过度效果，看起来像是重新渲染了">
                 <template #description>
@@ -298,8 +298,7 @@
   </div>
 </template>
 
-<script lang="ts" setup>
-  import schoolboy from '@/assets/images/schoolboy.png';
+<script lang="ts">
   import {
     GithubOutlined,
     DashboardOutlined,
@@ -310,6 +309,38 @@
     Html5Outlined,
   } from '@vicons/antd';
   import { LogoVue, LogoAngular, LogoReact, LogoJavascript } from '@vicons/ionicons5';
+
+  import { defineComponent } from 'vue';
+  import { useUserStore } from '@/store/modules/user';
+
+  export default defineComponent({
+    name: 'DashboardWorkplace',
+    components: {
+      GithubOutlined,
+      LogoVue,
+      DashboardOutlined,
+      ProfileOutlined,
+      FileProtectOutlined,
+      SettingOutlined,
+      ApartmentOutlined,
+      Html5Outlined,
+      LogoAngular,
+      LogoReact,
+      LogoJavascript,
+    },
+    setup() {
+      const userStore = useUserStore();
+      const { username, avatar } = userStore?.info || {};
+
+      let greeting = 'Hello';
+
+      return {
+        username,
+        avatar,
+        greeting,
+      };
+    },
+  });
 </script>
 
 <style lang="less" scoped>
