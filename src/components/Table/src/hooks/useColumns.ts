@@ -94,9 +94,10 @@ export function useColumns(propsRef: ComputedRef<BasicTableProps>) {
     const { actionColumn } = unref(propsRef);
     if (!actionColumn) return;
     // @ts-ignore
-    !columns.find((col) => col.key === 'action') && columns.push({
-      ...actionColumn,
-    });
+    !columns.find((col) => col.key === 'action') &&
+      columns.push({
+        ...actionColumn,
+      });
   }
 
   //设置

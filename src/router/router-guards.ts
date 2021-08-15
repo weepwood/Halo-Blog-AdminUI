@@ -56,7 +56,7 @@ export function createRouterGuards(router: Router) {
       return;
     }
 
-    const userInfo = await userStore.GetInfo();
+    const userInfo = userStore.getInfo();
 
     const routes = await asyncRouteStore.generateRoutes(userInfo);
 
