@@ -6,6 +6,12 @@ export interface BasicResponseModel<T = any> {
   result: T;
 }
 
+export interface AdminResponseModel<T = any> {
+  code: number;
+  msg: string;
+  data: T;
+}
+
 export interface BasicPageParams {
   pageNumber: number;
   pageSize: number;
@@ -29,6 +35,24 @@ export function login(params) {
   return http.request<BasicResponseModel>(
     {
       url: '/login',
+      method: 'POST',
+      params,
+    },
+    {
+      isTransformResponse: false,
+      // 获取原生相应头
+      isReturnNativeResponse: true,
+    }
+  );
+}
+
+/**
+ * @description: 管理员用户登录
+ */
+export function loginAdmin(params) {
+  return http.request<AdminResponseModel>(
+    {
+      url: '/login/admin',
       method: 'POST',
       params,
     },

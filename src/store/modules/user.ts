@@ -5,7 +5,7 @@ import { ACCESS_TOKEN, CURRENT_USER, IS_LOCKSCREEN } from '@/store/mutation-type
 import { ResultEnum } from '@/enums/httpEnum';
 
 const Storage = createStorage({ storage: localStorage });
-import { getUserInfo, login } from '@/api/system/user';
+import { login, loginAdmin } from '@/api/system/user';
 import { storage } from '@/utils/Storage';
 
 export interface IUserState {
@@ -76,27 +76,69 @@ export const useUserStore = defineStore({
       }
     },
 
+    // 管理员登录
+    async adminLogin(userInfo) {
+      try {
+        const response = await loginAdmin(userInfo);
+        const { data, code } = response;
+        if (code === ResultEnum.SUCCESS) {
+          const ex = 7 * 24 * 60 * 60 * 1000;
+          storage.set(ACCESS_TOKEN, data.token, ex);
+          storage.set(CURRENT_USER, data, ex);
+          storage.set(IS_LOCKSCREEN, false);
+          this.setToken(data.token);
+          this.setUserInfo(data);
+        }
+        return Promise.resolve(response);
+      } catch (e) {
+        return Promise.reject(e);
+      }
+    },
+
     // 获取用户信息
-    GetInfo() {
-      const that = this;
-      return new Promise((resolve, reject) => {
-        getUserInfo()
-          .then((res) => {
-            const result = res;
-            if (result.permissions && result.permissions.length) {
-              const permissionsList = result.permissions;
-              that.setPermissions(permissionsList);
-              that.setUserInfo(result);
-            } else {
-              reject(new Error('getInfo: permissionsList must be a non-null array !'));
-            }
-            that.setAvatar(result.avatar);
-            resolve(res);
-          })
-          .catch((error) => {
-            reject(error);
-          });
-      });
+    getInfo() {
+      const baseInfo = storage.get(CURRENT_USER);
+      const permissions = [
+        {
+          label: '主控台',
+          value: 'dashboard_console',
+        },
+        {
+          label: '监控页',
+          value: 'dashboard_monitor',
+        },
+        {
+          label: '工作台',
+          value: 'dashboard_workplace',
+        },
+        {
+          label: '基础列表',
+          value: 'basic_list',
+        },
+        {
+          label: '基础列表删除',
+          value: 'basic_list_delete',
+        },
+      ];
+
+      const adminInfo = {
+        userId: '',
+        username: '',
+        realName: 'Admin',
+        avatar: '',
+        desc: 'manager',
+        password: '11111',
+        token: '',
+        permissions,
+      };
+
+      adminInfo.userId = baseInfo.id;
+      adminInfo.username = baseInfo.username;
+      adminInfo.token = baseInfo.token;
+      adminInfo.avatar = baseInfo.avatar;
+      adminInfo.permissions = permissions;
+
+      return adminInfo;
     },
 
     // 登出

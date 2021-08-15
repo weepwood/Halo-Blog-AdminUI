@@ -643,11 +643,11 @@
   .tabs-view-default-background {
     background: #f5f7f9;
   }
-  
+
   .tabs-view-dark-background {
     background: #101014;
   }
-  
+
   .tabs-view-fix {
     position: fixed;
     z-index: 5;

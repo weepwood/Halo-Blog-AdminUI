@@ -6,6 +6,8 @@
           <n-input v-model:value="formValue.name" placeholder="请输入昵称" />
         </n-form-item>
 
+        <!--
+
         <n-form-item label="邮箱" path="email">
           <n-input placeholder="请输入备案编号" v-model:value="formValue.email" />
         </n-form-item>
@@ -18,6 +20,8 @@
           <n-input v-model:value="formValue.address" type="textarea" placeholder="请输入联系地址" />
         </n-form-item>
 
+        -->
+
         <div>
           <n-space>
             <n-button type="primary" @click="formSubmit">更新基本信息</n-button>
@@ -29,8 +33,9 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent, reactive, ref, toRefs } from 'vue';
+  import { defineComponent, onMounted, reactive, ref, toRefs } from 'vue';
   import { useMessage } from 'naive-ui';
+  import { useUserStoreWidthOut } from '@/store/modules/user';
 
   const rules = {
     name: {
@@ -62,6 +67,12 @@
           email: '',
           address: '',
         },
+      });
+      const userStore = useUserStoreWidthOut();
+
+      onMounted(() => {
+        let res = userStore.getInfo();
+        state.formValue.name = res.username;
       });
 
       function formSubmit() {
